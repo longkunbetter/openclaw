@@ -282,7 +282,7 @@ async function classifyOpenAISdkStreamBody(response: Response): Promise<OpenAISd
     text += decoder.decode();
     return classifyOpenAISdkStreamBodyPrefix(text);
   } finally {
-    await reader.cancel().catch(() => undefined);
+    void reader.cancel().catch(() => undefined);
   }
 }
 
